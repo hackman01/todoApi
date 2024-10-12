@@ -8,6 +8,6 @@ import (
 func SetUpRouter() *mux.Router {
 	
 	router := mux.NewRouter()
-	router.Get("/api/health",handlers.health)
+	router.HandleFunc("/api/health",handlers.health).Methods("GET")
 	return router
 }
