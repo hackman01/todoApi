@@ -6,11 +6,11 @@ import (
 )
 
 
-func health(w http.ResponseWriter, r *http.Request){
+func Health(w http.ResponseWriter, r *http.Request){
 	type status struct {
         Message string `json:"message"`
 	}
     
-	utils.respondWithJson(w,200,status{Message : "Server is Up!"})
+	utils.RespondWithJson(w,200,status{Message : "Server is Up!"})
 
 }

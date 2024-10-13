@@ -7,7 +7,7 @@ import (
 )
 
 
-func respondWithJson(w http.ResponseWriter,code int,payload interface{}){
+func RespondWithJson(w http.ResponseWriter,code int,payload interface{}){
 	dat,err := json.Marshal(payload)
 
 	if err!=nil {
@@ -21,7 +21,7 @@ func respondWithJson(w http.ResponseWriter,code int,payload interface{}){
 	w.Write(dat)
 }
 
-func respondWithError(w http.ResponseWriter,code int,msg string){
+func RespondWithError(w http.ResponseWriter,code int,msg string){
 	if code>499 {
 		log.Println("Server Error",msg)
 	}
@@ -30,5 +30,5 @@ func respondWithError(w http.ResponseWriter,code int,msg string){
 		Error string `json:"error"`
 	}
 
-	respondWithJson(w,code,errorResp{Error: msg})
+	RespondWithJson(w,code,errorResp{Error: msg})
 }
